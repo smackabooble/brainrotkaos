@@ -1,0 +1,332 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #4caf2b;
+  --green-dark: #2d6e18;
+  --green-light: #a8e063;
+  --slime: #8ee000;
+  --yellow: #ffe135;
+  --purple: #7b2ff7;
+  --pink: #ff4fcb;
+  --red: #ff3b3b;
+  --white: #fff;
+  --dark: #1a1a1a;
+  --bg: #f5f9ee;
+  --radius: 18px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: 'Fredoka One', cursive; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--green-dark) 0%, var(--green) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem;
+}
+
+.slime-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.drip {
+  width: 60px;
+  background: var(--slime);
+  border-radius: 0 0 50px 50px;
+  animation: drip-fall 3s ease-in-out infinite alternate;
+}
+
+.drip:nth-child(1) { height: 80px; animation-delay: 0s; }
+.drip:nth-child(2) { height: 120px; animation-delay: 0.4s; width: 50px; }
+.drip:nth-child(3) { height: 60px; animation-delay: 0.8s; width: 70px; }
+.drip:nth-child(4) { height: 100px; animation-delay: 0.2s; width: 45px; }
+.drip:nth-child(5) { height: 70px; animation-delay: 0.6s; }
+
+@keyframes drip-fall {
+  from { transform: scaleY(1); }
+  to   { transform: scaleY(1.15); }
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.logo {
+  font-size: clamp(3rem, 10vw, 7rem);
+  color: var(--white);
+  text-shadow:
+    4px 4px 0 var(--green-dark),
+    -2px -2px 0 var(--green-dark);
+  letter-spacing: 2px;
+  animation: wobble 2.5s ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-1deg); }
+  50%       { transform: rotate(1deg); }
+}
+
+.tagline {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: var(--slime);
+  font-weight: 900;
+  margin: 0.5rem 0;
+}
+
+.byline {
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* ── BUTTONS ── */
+.btn-main {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--dark);
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  padding: 0.8rem 2.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 3px solid var(--dark);
+  box-shadow: 4px 4px 0 var(--dark);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-main:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--dark);
+}
+
+.btn-main:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--dark);
+}
+
+.btn-big { font-size: 1.6rem; padding: 1rem 3rem; margin-top: 2rem; }
+
+/* ── SECTIONS ── */
+.section {
+  padding: 5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section h2::after {
+  content: '';
+  display: block;
+  height: 5px;
+  background: var(--green);
+  border-radius: 99px;
+  margin-top: 6px;
+}
+
+/* ── WHAT ── */
+.what { background: transparent; }
+
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--white);
+  border: 3px solid var(--dark);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 5px 5px 0 var(--dark);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--dark);
+}
+
+.card-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.card h3 { font-size: 1.4rem; margin-bottom: 0.4rem; }
+.card p { font-size: 0.95rem; line-height: 1.5; }
+
+/* ── BOARD ── */
+.board-section {
+  background: var(--green-dark);
+  max-width: 100%;
+  padding: 5rem 2rem;
+}
+
+.board-section h2 { color: var(--white); }
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+
+.board-tile {
+  background: var(--yellow);
+  border: 3px solid var(--dark);
+  border-radius: 12px;
+  padding: 0.7rem 0.4rem;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.85rem;
+  box-shadow: 3px 3px 0 var(--dark);
+  cursor: default;
+  transition: transform 0.1s;
+}
+
+.board-tile:hover { transform: scale(1.05); }
+
+.board-tile.start    { background: var(--green-light); font-size: 1rem; }
+.board-tile.money    { background: #d4f7a0; }
+.board-tile.tax      { background: var(--red); color: var(--white); }
+.board-tile.reroll   { background: #c0d8ff; }
+.board-tile.bank     { background: var(--yellow); }
+.board-tile.steal    { background: #ffd6f6; }
+.board-tile.common   { background: #e0e0e0; }
+.board-tile.uncommon { background: #b3f0b3; }
+.board-tile.rare     { background: #80c8ff; }
+.board-tile.epic     { background: #d0a0ff; }
+.board-tile.mythic   { background: linear-gradient(135deg, #ffd700, #ff6ec7); }
+
+.board-note {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ── SPECIAL CARDS ── */
+.cards-section { background: var(--bg); }
+
+.special-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.special-card {
+  border: 3px solid var(--dark);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 6px 6px 0 var(--dark);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.special-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--dark);
+}
+
+.special-card.sigma  { background: linear-gradient(135deg, #ff4fcb22, #ff4fcb44); border-color: var(--pink); }
+.special-card.tjuv   { background: linear-gradient(135deg, #7b2ff722, #7b2ff744); border-color: var(--purple); }
+
+.special-card-header {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.special-card.sigma .special-card-header { color: var(--pink); }
+.special-card.tjuv  .special-card-header { color: var(--purple); }
+
+.special-card p { line-height: 1.6; margin-bottom: 0.5rem; }
+.special-card .warning { font-size: 0.9rem; opacity: 0.75; }
+
+/* ── WHY BUY ── */
+.why-section {
+  background: var(--yellow);
+  max-width: 100%;
+  padding: 5rem 2rem;
+  text-align: center;
+  border-top: 4px solid var(--dark);
+  border-bottom: 4px solid var(--dark);
+}
+
+.why-list {
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto 1rem;
+  font-size: 1.2rem;
+  line-height: 2.2;
+}
+
+.why-list li { padding-left: 0.5rem; }
+
+.old-price {
+  text-decoration: line-through;
+  opacity: 0.5;
+  font-size: 0.9em;
+}
+
+/* ── CONTENTS ── */
+.contents-section { text-align: center; }
+
+.contents-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.content-item {
+  background: var(--white);
+  border: 3px solid var(--dark);
+  border-radius: 50px;
+  padding: 0.6rem 1.4rem;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  box-shadow: 3px 3px 0 var(--dark);
+  transition: transform 0.1s;
+}
+
+.content-item:hover { transform: scale(1.06); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .board-grid { grid-template-columns: repeat(3, 1fr); }
+  .btn-big { font-size: 1.2rem; padding: 0.8rem 1.8rem; }
+}
