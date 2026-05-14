@@ -3,118 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brainrot-Kaos</title>
+  <title>BRAINROT-KAOS 🧠💥</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- MUSIC BUTTON -->
+  <button id="musicBtn" title="Musik">🔇</button>
+  <audio id="bgMusic" src="beautiful_day.mp3" loop></audio>
+
+  <!-- FLOATING CHAOS EMOJIS -->
+  <div class="floaters" aria-hidden="true">
+    <span>🧠</span><span>💥</span><span>🎲</span><span>💰</span><span>🏎️</span>
+    <span>🤑</span><span>🎯</span><span>💀</span><span>🔥</span><span>🥷</span>
+    <span>💪</span><span>⚡</span><span>🧠</span><span>💸</span><span>😤</span>
+  </div>
+
   <!-- HERO -->
   <section class="hero">
-    <div class="slime-top">
-      <div class="drip"></div>
-      <div class="drip"></div>
-      <div class="drip"></div>
-      <div class="drip"></div>
-      <div class="drip"></div>
+    <div class="slime-bar top-slime">
+      <div class="drip" style="--h:90px;--d:0s;--w:55px"></div>
+      <div class="drip" style="--h:130px;--d:0.3s;--w:45px"></div>
+      <div class="drip" style="--h:70px;--d:0.6s;--w:65px"></div>
+      <div class="drip" style="--h:110px;--d:0.1s;--w:50px"></div>
+      <div class="drip" style="--h:85px;--d:0.5s;--w:40px"></div>
+      <div class="drip" style="--h:140px;--d:0.8s;--w:60px"></div>
+      <div class="drip" style="--h:75px;--d:0.2s;--w:70px"></div>
     </div>
+
     <div class="hero-content">
-      <h1 class="logo">Brainrot-Kaos</h1>
-      <p class="tagline">Let Your Brain Rot 🧠</p>
-      <p class="byline">Av Frallex Productions</p>
-      <a href="#buy" class="btn-main">KÖP NU – 1294kr</a>
+      <div class="badge spin-badge">⚡ REA ⚡</div>
+      <h1 class="logo">BRAINROT<br/>KAOS</h1>
+      <p class="tagline">LET YOUR BRAIN ROT 🧠💥</p>
+      <p class="byline">AV FRALLEX PRODUCTIONS</p>
+      <div class="price-wrap">
+        <span class="old-price">1295kr</span>
+        <span class="new-price">1294kr</span>
+      </div>
+      <a href="#buy" class="btn-main shake-btn">KÖP NU →</a>
+    </div>
+
+    <div class="slime-bar bottom-slime">
+      <div class="drip up" style="--h:80px;--d:0s;--w:55px"></div>
+      <div class="drip up" style="--h:120px;--d:0.4s;--w:45px"></div>
+      <div class="drip up" style="--h:65px;--d:0.7s;--w:70px"></div>
+      <div class="drip up" style="--h:100px;--d:0.2s;--w:50px"></div>
+      <div class="drip up" style="--h:90px;--d:0.9s;--w:60px"></div>
+      <div class="drip up" style="--h:130px;--d:0.5s;--w:40px"></div>
+      <div class="drip up" style="--h:75px;--d:0.3s;--w:65px"></div>
     </div>
   </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee">
+      💥 SAMLA BRAINROTS &nbsp;•&nbsp; 🏎️ VINN EN FERRARI &nbsp;•&nbsp;
+      💰 TJÄNA ROTS &nbsp;•&nbsp; 💪 SIGMA KORTET &nbsp;•&nbsp;
+      🥷 TJUV KORTET &nbsp;•&nbsp; 🧠 LET YOUR BRAIN ROT &nbsp;•&nbsp;
+      ⚡ PÅ REA NU &nbsp;•&nbsp; 🎲 KASTA TÄRNING &nbsp;•&nbsp;
+      💥 SAMLA BRAINROTS &nbsp;•&nbsp; 🏎️ VINN EN FERRARI &nbsp;•&nbsp;
+      💰 TJÄNA ROTS &nbsp;•&nbsp; 💪 SIGMA KORTET &nbsp;•&nbsp;
+    </div>
+  </div>
 
   <!-- WHAT IS IT -->
   <section class="section what">
-    <h2>Vad är Brainrot-Kaos?</h2>
+    <h2 class="section-title tilt-left">VAD ÄR DET?!</h2>
     <div class="cards-row">
-      <div class="card">
+      <div class="card card-green tilt-left">
         <div class="card-icon">🎯</div>
-        <h3>Målet</h3>
-        <p>Samla så många brainrots som möjligt och ha flest poäng när tiden är slut!</p>
+        <h3>MÅLET</h3>
+        <p>Samla så många brainrots som möjligt och ha FLEST poäng när tiden är slut. Den som förlorar är cooked.</p>
       </div>
-      <div class="card">
+      <div class="card card-yellow tilt-right">
         <div class="card-icon">💰</div>
-        <h3>Valutan</h3>
-        <p>Brainrots kostar <strong>rots</strong> – spelets egna valuta. Samla pengar, köp brainrots, dominera.</p>
+        <h3>VALUTAN</h3>
+        <p>Brainrots kostar <strong>ROTS</strong> – spelets egna valuta. Utan rots = ingen brainrot = du förlorar.</p>
       </div>
-      <div class="card">
+      <div class="card card-pink tilt-left">
         <div class="card-icon">👥</div>
-        <h3>Spelare</h3>
-        <p>2–6 spelare rekommenderas. Du KAN spela mer eller mindre men… nej.</p>
+        <h3>SPELARE</h3>
+        <p>2–6 spelare rekommenderas. Du KAN spela mer eller mindre men… <strong>NEJ.</strong></p>
       </div>
-      <div class="card">
+      <div class="card card-purple tilt-right">
         <div class="card-icon">⏱️</div>
-        <h3>Tid</h3>
-        <p>Ni bestämmer själva hur länge ni vill spela. Alla enas om en tid – och sen kör ni!</p>
+        <h3>REGLERNA</h3>
+        <p>Ni bestämmer hur länge ni spelar. Alla enas – och sen kör ni tills chaosen tar slut!</p>
       </div>
     </div>
   </section>
 
-  <!-- BOARD -->
-  <section class="section board-section">
-    <h2>Spelbrädan</h2>
-    <div class="board-grid">
-      <div class="board-tile start">START</div>
-      <div class="board-tile money">+50 rots</div>
-      <div class="board-tile tax">SKATT -50</div>
-      <div class="board-tile buy common">Common<br/><small>100r</small></div>
-      <div class="board-tile money">+100 rots</div>
-      <div class="board-tile reroll">🎲 Kasta om</div>
-      <div class="board-tile buy uncommon">Uncommon<br/><small>250r</small></div>
-      <div class="board-tile money">+200 rots</div>
-      <div class="board-tile money">+50 rots</div>
-      <div class="board-tile buy rare">Rare<br/><small>100r</small></div>
-      <div class="board-tile steal">Give away 🎁</div>
-      <div class="board-tile reroll">🎲 Kasta om</div>
-      <div class="board-tile buy epic">Epic<br/><small>550r</small></div>
-      <div class="board-tile money">+100 rots</div>
-      <div class="board-tile money">+250 rots</div>
-      <div class="board-tile tax">SKATT -100</div>
-      <div class="board-tile money">+300 rots</div>
-      <div class="board-tile bank">🏦 Bankansvarig</div>
-      <div class="board-tile buy mythic">Mythic<br/><small>1000r</small></div>
-      <div class="board-tile reroll">🎲 Kasta om</div>
+  <!-- RARITIES -->
+  <section class="section rarities-section">
+    <h2 class="section-title tilt-right">BRAINROT RARITETER 🧠</h2>
+    <div class="rarity-row">
+      <div class="rarity-card common">
+        <div class="rarity-label">COMMON</div>
+        <div class="rarity-price">100r</div>
+        <div class="rarity-desc">Billig &amp; basic</div>
+      </div>
+      <div class="rarity-card uncommon">
+        <div class="rarity-label">UNCOMMON</div>
+        <div class="rarity-price">250r</div>
+        <div class="rarity-desc">Lite bättre</div>
+      </div>
+      <div class="rarity-card rare">
+        <div class="rarity-label">RARE</div>
+        <div class="rarity-price">100r</div>
+        <div class="rarity-desc">Sällsynt 👀</div>
+      </div>
+      <div class="rarity-card epic">
+        <div class="rarity-label">EPIC</div>
+        <div class="rarity-price">550r</div>
+        <div class="rarity-desc">Episk. Punkt.</div>
+      </div>
+      <div class="rarity-card mythic">
+        <div class="rarity-label">MYTHIC</div>
+        <div class="rarity-price">1000r</div>
+        <div class="rarity-desc">LEGENDAR 🔥</div>
+      </div>
     </div>
-    <p class="board-note">* Landning på en brainrot-ruta ger dig chansen att köpa – du måste inte!</p>
   </section>
 
   <!-- SPECIAL CARDS -->
   <section class="section cards-section">
-    <h2>Speciella Kort</h2>
+    <h2 class="section-title tilt-left">SPECIELLA KORT ⚡</h2>
     <div class="special-cards">
       <div class="special-card sigma">
-        <div class="special-card-header">💪 Sigma-Kortet</div>
-        <p>Kostar <strong>1 000 rots</strong>. Låter dig stjäla <strong>3 brainrots</strong> istället för 1 åt gången.</p>
-        <p class="warning">⚠️ Om någon landar på din ruta – de kan ta det ifrån dig!</p>
+        <div class="card-stamp">SIGMA</div>
+        <div class="special-card-header">💪 SIGMA-KORTET</div>
+        <p>Kostar <strong>1 000 rots</strong>. Låter dig stjäla <strong>3 brainrots</strong> på en gång istället för 1.</p>
+        <p>Landar någon på din ruta? <strong>De tar det.</strong></p>
+        <p>Landar du på andras ruta? <strong>De får det.</strong></p>
+        <div class="chaos-label">OVERPOWERED 💀</div>
       </div>
       <div class="special-card tjuv">
-        <div class="special-card-header">🥷 Tjuv-Kortet</div>
-        <p>När du köper en ny brainrot finns det en <strong>chans att dra Tjuv-Kortet</strong>.</p>
-        <p class="warning">⚠️ Tjuven tar en brainrot från dig. Har du inga kvar? Du åker UT.</p>
+        <div class="card-stamp cooked-stamp">COOKED</div>
+        <div class="special-card-header">🥷 TJUV-KORTET</div>
+        <p>Varje gång du köper en brainrot finns det en <strong>chans att dra tjuvkortet.</strong></p>
+        <p>Tjuven tar en av dina brainrots. Har du <strong>inga kvar?</strong></p>
+        <div class="chaos-label danger">DU ÅKER UT 💀</div>
       </div>
     </div>
   </section>
 
   <!-- WHY BUY -->
   <section class="section why-section" id="buy">
-    <h2>Varför Just Vårat Spel?</h2>
-    <ul class="why-list">
-      <li>🔥 På <strong>REA</strong> just nu! <span class="old-price">1295kr</span> → <strong>1294kr</strong></li>
-      <li>🦄 Väldigt unikt spel</li>
-      <li>🏎️ Det finns en chans att du får en <strong>Ferrari</strong></li>
-      <li>🧒 Gjort av två skolelever med kärlek</li>
-      <li>✂️ Gjort med bästa materialen från skolan</li>
-    </ul>
-    <a href="#" class="btn-main btn-big">KÖP BRAINROT-KAOS – 1294kr</a>
+    <h2 class="section-title tilt-right">VARFÖR JUST VÅR?! 🏆</h2>
+    <div class="why-grid">
+      <div class="why-item">🔥 På <strong>REA</strong>!<br/><span class="old-price">1295kr</span> → <strong>1294kr</strong></div>
+      <div class="why-item">🦄 Extremt <strong>unikt</strong> spel</div>
+      <div class="why-item">🏎️ Chans att vinna en <strong>FERRARI</strong></div>
+      <div class="why-item">🧒 Gjort av två <strong>skolelever</strong></div>
+      <div class="why-item">❤️ Gjort med <strong>kärlek</strong></div>
+      <div class="why-item">✂️ Bästa materialen <strong>från skolan</strong></div>
+    </div>
+    <a href="#" class="btn-main btn-big shake-btn">💥 KÖP BRAINROT-KAOS – 1294kr 💥</a>
   </section>
 
   <!-- CONTENTS -->
   <section class="section contents-section">
-    <h2>Innehåll i Lådan</h2>
+    <h2 class="section-title tilt-left">VAD INGÅR? 📦</h2>
     <div class="contents-grid">
       <div class="content-item">🎮 Spelpjäs</div>
       <div class="content-item">🗺️ Brädan</div>
@@ -128,7 +179,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Frallex Productions · Let Your Brain Rot</p>
+    <p>© 2025 FRALLEX PRODUCTIONS · LET YOUR BRAIN ROT 🧠</p>
   </footer>
 
   <script src="script.js"></script>
