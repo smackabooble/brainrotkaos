@@ -3,15 +3,35 @@ const musicBtn = document.getElementById('musicBtn');
 const bgMusic  = document.getElementById('bgMusic');
 let playing = false;
 
-musicBtn.addEventListener('click', () => {
+function startMusic() {
+  bgMusic.play().then(() => {
+    playing = true;
+    musicBtn.textContent = '🔊';
+  }).catch(() => {});
+}
+
+// Try autoplay immediately
+startMusic();
+
+// If browser blocked it, start on first interaction anywhere
+function onFirstInteraction() {
+  if (!playing) startMusic();
+  document.removeEventListener('click', onFirstInteraction);
+  document.removeEventListener('keydown', onFirstInteraction);
+}
+document.addEventListener('click', onFirstInteraction);
+document.addEventListener('keydown', onFirstInteraction);
+
+// Manual toggle
+musicBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
   if (playing) {
     bgMusic.pause();
     musicBtn.textContent = '🔇';
+    playing = false;
   } else {
-    bgMusic.play().catch(() => {});
-    musicBtn.textContent = '🔊';
+    startMusic();
   }
-  playing = !playing;
 });
 
 // ── SCROLL FADE-IN ──
