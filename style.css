@@ -291,6 +291,63 @@ h1, h2, h3, .btn-main, .rarity-label, .chaos-label, .marquee,
 .card h3     { font-family: 'Bangers', cursive; font-size: 1.8rem; margin-bottom: 0.4rem; letter-spacing: 2px; }
 .card p      { font-size: 1rem; line-height: 1.5; }
 
+/* ── BRAINROTS SHOWCASE ── */
+.brainrots-section {
+  text-align: center;
+  background: linear-gradient(135deg, #e8f5d0 0%, #d0f0ff 100%);
+  max-width: 100%;
+  padding: 5rem 2rem;
+  border-top: 5px solid var(--dark);
+  border-bottom: 5px solid var(--dark);
+}
+
+.brainrots-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4rem;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.brainrot-char {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: char-bob 2.2s ease-in-out var(--delay, 0s) infinite;
+}
+
+.brainrot-char img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+  transition: transform 0.2s;
+}
+
+.brainrot-char:hover img {
+  transform: scale(1.12) rotate(-4deg);
+}
+
+.brainrot-name {
+  font-family: 'Bangers', cursive;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  margin-top: 0.8rem;
+  background: var(--dark);
+  color: var(--yellow);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  border: 3px solid var(--dark);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+}
+
+@keyframes char-bob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
 /* ── RARITIES ── */
 .rarities-section {
   background: var(--dark);
