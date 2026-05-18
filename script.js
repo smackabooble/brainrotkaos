@@ -123,3 +123,33 @@ document.querySelectorAll('.rarity-card').forEach(card => {
   card.style.setProperty('--rot', tilt + 'deg');
   card.style.transform = `rotate(${tilt}deg)`;
 });
+
+// ── CURSOR TRAIL ──
+const sparkEmojis = ['💥','⚡','🔥','💫','✨','🌀','💀','🧠'];
+document.addEventListener('mousemove', (e) => {
+  if (Math.random() > 0.35) return;
+  const spark = document.createElement('span');
+  spark.className = 'cursor-spark';
+  spark.textContent = sparkEmojis[Math.floor(Math.random() * sparkEmojis.length)];
+  spark.style.left = e.clientX + 'px';
+  spark.style.top  = e.clientY + 'px';
+  spark.style.setProperty('--dx', (Math.random() * 60 - 30) + 'px');
+  spark.style.setProperty('--dy', (Math.random() * -60 - 10) + 'px');
+  document.body.appendChild(spark);
+  setTimeout(() => spark.remove(), 700);
+});
+
+// ── RANDOM BURST POPS ──
+const burstWords = ['POW!', 'BOOM!', 'KAPOW!', 'BAM!', 'ZAP!', 'WOW!', 'KAOS!', 'BRAINROT!'];
+const burstColors = ['#ffe135', '#ff4fcb', '#00e5ff', '#ff7b00', '#8ee000', '#ff3b3b'];
+function spawnBurst() {
+  const burst = document.createElement('div');
+  burst.className = 'burst-pop';
+  burst.textContent = burstWords[Math.floor(Math.random() * burstWords.length)];
+  burst.style.left  = (10 + Math.random() * 75) + 'vw';
+  burst.style.top   = (10 + Math.random() * 75) + 'vh';
+  burst.style.color = burstColors[Math.floor(Math.random() * burstColors.length)];
+  document.body.appendChild(burst);
+  setTimeout(() => burst.remove(), 900);
+}
+setInterval(spawnBurst, 2200);
