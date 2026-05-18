@@ -72,22 +72,25 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ── BUY BUTTON: SHAKE + OPEN REDDIT LINK ──
+// ── BUY BUTTON: SHAKE + RANDOM OPEN (REDDIT / PNG) ──
 document.querySelectorAll('.btn-main').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
 
-    // Restart shake animation
+    // restart shake animation
     btn.style.animation = 'none';
     void btn.offsetHeight;
     btn.style.animation = 'btn-shake 0.4s ease';
 
-    // Open Reddit post after animation
     setTimeout(() => {
-      window.open(
+      const options = [
         'https://www.reddit.com/r/unket/comments/zqghsh/kek/',
-        '_blank'
-      );
+        './sommarland.png'
+      ];
+
+      const pick = options[Math.floor(Math.random() * options.length)];
+
+      window.open(pick, '_blank');
 
       btn.style.animation = '';
     }, 400);
