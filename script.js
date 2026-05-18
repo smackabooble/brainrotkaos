@@ -3,6 +3,9 @@ const musicBtn = document.getElementById('musicBtn');
 const bgMusic  = document.getElementById('bgMusic');
 let playing = false;
 
+const songs = ['brainrot_kaos_main_theme.mp3', 'tung_tung_tung.mp3'];
+bgMusic.src = songs[Math.floor(Math.random() * songs.length)];
+
 function startMusic() {
   bgMusic.play().then(() => {
     playing = true;
