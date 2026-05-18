@@ -72,7 +72,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ── BUY BUTTON: SHAKE + RANDOM OPEN (REDDIT / PNG) ──
+// ── BUY BUTTON: SHAKE + RANDOM OPEN (REDDIT / 2 PNGs) ──
 document.querySelectorAll('.btn-main').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
@@ -85,7 +85,8 @@ document.querySelectorAll('.btn-main').forEach(btn => {
     setTimeout(() => {
       const options = [
         'https://www.reddit.com/r/unket/comments/zqghsh/kek/',
-        './sommarland.png'
+        './sommarland.png',
+        './pappa.png'
       ];
 
       const pick = options[Math.floor(Math.random() * options.length)];
