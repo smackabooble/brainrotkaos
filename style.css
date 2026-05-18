@@ -427,6 +427,8 @@ h1, h2, h3, .btn-main, .rarity-label, .chaos-label, .marquee,
 .uncommon { background: #b3f0b3; }
 .rare     { background: #80c8ff; }
 .epic     { background: #d0a0ff; }
+.legendary { background: linear-gradient(135deg, #ff9900, #ffdd00); border-color: #ff9900; animation: legendary-glow 1.5s ease-in-out infinite alternate; }
+@keyframes legendary-glow { from { box-shadow: 6px 6px 0 #ff9900; } to { box-shadow: 6px 6px 20px #ffdd00, 0 0 30px #ff9900; } }
 .mythic   { background: linear-gradient(135deg, #ffd700, #ff6ec7); border-color: #ff6ec7; animation: mythic-glow 1.5s ease-in-out infinite alternate; }
 @keyframes mythic-glow { from { box-shadow: 6px 6px 0 #ffd700; } to { box-shadow: 6px 6px 20px #ff6ec7, 0 0 30px #ffd700; } }
 
