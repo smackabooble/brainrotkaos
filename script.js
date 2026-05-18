@@ -1,41 +1,57 @@
-// ── MUSIC TOGGLE ──
-const musicBtn = document.getElementById('musicBtn');
-const bgMusic  = document.getElementById('bgMusic');
+// ── MUSIC PLAYER ──
+const bgMusic     = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
+const songBtns    = document.querySelectorAll('.song-btn');
 let playing = false;
 
-const songs = ['brainrot_kaos_main_theme.mp3', 'tung_tung_tung.mp3'];
-bgMusic.src = songs[Math.floor(Math.random() * songs.length)];
-
-function startMusic() {
-  bgMusic.play().then(() => {
-    playing = true;
-    musicBtn.textContent = '🔊';
-  }).catch(() => {});
+function setActiveSong(btn) {
+  songBtns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const wasPlaying = playing;
+  const currentTime = bgMusic.currentTime;
+  bgMusic.src = btn.dataset.src;
+  if (wasPlaying) {
+    bgMusic.play().catch(() => {});
+  }
 }
 
-// Try autoplay immediately
-startMusic();
-
-// If browser blocked it, start on first interaction anywhere
-function onFirstInteraction() {
-  if (!playing) startMusic();
-  document.removeEventListener('click', onFirstInteraction);
-  document.removeEventListener('keydown', onFirstInteraction);
+function updateToggle() {
+  musicToggle.textContent = playing ? '⏸ PAUSE' : '▶ PLAY';
 }
-document.addEventListener('click', onFirstInteraction);
-document.addEventListener('keydown', onFirstInteraction);
 
-// Manual toggle
-musicBtn.addEventListener('click', (e) => {
+songBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setActiveSong(btn);
+    if (!playing) {
+      bgMusic.play().then(() => { playing = true; updateToggle(); }).catch(() => {});
+    }
+  });
+});
+
+musicToggle.addEventListener('click', (e) => {
   e.stopPropagation();
   if (playing) {
     bgMusic.pause();
-    musicBtn.textContent = '🔇';
     playing = false;
   } else {
-    startMusic();
+    if (!bgMusic.src) {
+      setActiveSong(songBtns[0]);
+    }
+    bgMusic.play().then(() => { playing = true; }).catch(() => {});
   }
+  updateToggle();
 });
+
+// Start on first interaction if no song selected yet
+function onFirstInteraction() {
+  if (!playing && !bgMusic.src) {
+    setActiveSong(songBtns[0]);
+    bgMusic.play().then(() => { playing = true; updateToggle(); }).catch(() => {});
+  }
+  document.removeEventListener('keydown', onFirstInteraction);
+}
+document.addEventListener('keydown', onFirstInteraction);
 
 // ── SCROLL FADE-IN ──
 const observer = new IntersectionObserver((entries) => {

@@ -29,24 +29,69 @@ h1, h2, h3, .btn-main, .rarity-label, .chaos-label, .marquee,
   letter-spacing: 2px;
 }
 
-/* ── MUSIC BUTTON ── */
-#musicBtn {
+/* ── MUSIC PLAYER ── */
+#musicPlayer {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 999;
   background: var(--yellow);
   border: 3px solid var(--dark);
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  font-size: 1.6rem;
-  cursor: pointer;
-  box-shadow: 4px 4px 0 var(--dark);
-  transition: transform 0.1s, box-shadow 0.1s;
+  border-radius: 14px;
+  box-shadow: 5px 5px 0 var(--dark);
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 170px;
 }
-#musicBtn:hover { transform: scale(1.1); }
-#musicBtn:active { transform: scale(0.95); box-shadow: 2px 2px 0 var(--dark); }
+
+#musicLabel {
+  font-family: 'Bangers', cursive;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-align: center;
+  color: var(--dark);
+}
+
+#songBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.song-btn {
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  background: var(--white);
+  border: 2px solid var(--dark);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--dark);
+  transition: transform 0.1s, background 0.1s;
+  text-align: left;
+}
+.song-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--dark); }
+.song-btn.active { background: var(--green); color: var(--white); }
+
+#musicToggle {
+  font-family: 'Bangers', cursive;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  background: var(--dark);
+  color: var(--yellow);
+  border: 2px solid var(--dark);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+  transition: transform 0.1s;
+  text-align: center;
+}
+#musicToggle:hover { transform: translate(-1px, -1px); }
+#musicToggle:active { transform: translate(1px, 1px); }
 
 /* ── FLOATING EMOJIS ── */
 .floaters {

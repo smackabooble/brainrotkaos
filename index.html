@@ -10,8 +10,15 @@
 </head>
 <body>
 
-  <!-- MUSIC BUTTON -->
-  <button id="musicBtn" title="Musik">🔇</button>
+  <!-- MUSIC PLAYER -->
+  <div id="musicPlayer">
+    <div id="musicLabel">🎵 MUSIK</div>
+    <div id="songBtns">
+      <button class="song-btn" data-src="brainrot_kaos_main_theme.mp3">MAIN THEME</button>
+      <button class="song-btn" data-src="tung_tung_tung.mp3">TUNG TUNG TUNG</button>
+    </div>
+    <button id="musicToggle">▶ PLAY</button>
+  </div>
   <audio id="bgMusic" loop></audio>
 
   <!-- FLOATING CHAOS EMOJIS -->
