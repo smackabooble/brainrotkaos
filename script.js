@@ -72,14 +72,25 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ── BUY BUTTON SHAKE ON CLICK ──
+// ── BUY BUTTON: SHAKE + OPEN REDDIT LINK ──
 document.querySelectorAll('.btn-main').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
+
+    // Restart shake animation
     btn.style.animation = 'none';
     void btn.offsetHeight;
     btn.style.animation = 'btn-shake 0.4s ease';
-    setTimeout(() => btn.style.animation = '', 500);
+
+    // Open Reddit post after animation
+    setTimeout(() => {
+      window.open(
+        'https://www.reddit.com/r/unket/comments/zqghsh/kek/',
+        '_blank'
+      );
+
+      btn.style.animation = '';
+    }, 400);
   });
 });
 
