@@ -390,7 +390,7 @@ document.querySelectorAll('.btn-main').forEach(btn => {
 
     setTimeout(() => {
       const options = [
-        'https://www.reddit.com/r/unket/comments/zqghsh/kek/',
+        './stamsite.png',
         './sommarland.png',
         './pappa.png'
       ];
