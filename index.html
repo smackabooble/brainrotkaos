@@ -3,198 +3,272 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BRAINROT-KAOS</title>
+  <title>BRAINROT-KAOS 🧠💥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+  <div id="scroll-bar"></div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- MUSIC PLAYER -->
+  <div id="musicPlayer">
+    <div id="musicLabel">🎵 MUSIK</div>
+    <div id="songBtns">
+      <button class="song-btn" data-src="brainrot_kaos_main_theme.mp3">MAIN THEME</button>
+      <button class="song-btn" data-src="tung_tung_tung.mp3">TUNG TUNG TUNG</button>
+    </div>
+    <button id="musicToggle">▶ PLAY</button>
+  </div>
+  <audio id="bgMusic" loop></audio>
+
+  <!-- FLOATING CHAOS EMOJIS -->
+  <div class="floaters" aria-hidden="true">
+    <span>🧠</span><span>💥</span><span>🎲</span><span>💰</span><span>🏎️</span>
+    <span>🤑</span><span>🎯</span><span>💀</span><span>🔥</span><span>🥷</span>
+    <span>💪</span><span>⚡</span><span>🧠</span><span>💸</span><span>😤</span>
+    <span>🌀</span><span>💫</span><span>🤯</span><span>👑</span><span>🎆</span>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
 
-    <div class="hero-content">
-      <div class="badge">REA</div>
+    <div class="slime-bar top-slime">
+      <div class="drip" style="--h:90px;--d:0s;--w:55px"></div>
+      <div class="drip" style="--h:130px;--d:0.3s;--w:45px"></div>
+      <div class="drip" style="--h:70px;--d:0.6s;--w:65px"></div>
+      <div class="drip" style="--h:110px;--d:0.1s;--w:50px"></div>
+      <div class="drip" style="--h:85px;--d:0.5s;--w:40px"></div>
+      <div class="drip" style="--h:140px;--d:0.8s;--w:60px"></div>
+      <div class="drip" style="--h:75px;--d:0.2s;--w:70px"></div>
+    </div>
 
+    <div class="hero-content" id="heroContent">
+      <div class="badge spin-badge">⚡ REA ⚡</div>
       <h1 class="logo">BRAINROT<br/>KAOS</h1>
-
-      <p class="tagline">LET YOUR BRAIN ROT</p>
-      <p class="byline">FRALLEX PRODUCTIONS</p>
-
+      <p class="tagline">LET YOUR BRAIN ROT 🧠💥</p>
+      <p class="byline">AV FRALLEX PRODUCTIONS</p>
       <div class="price-wrap">
         <span class="old-price">1295kr</span>
         <span class="new-price">1294kr</span>
       </div>
-
-      <a href="#buy" class="btn-main">KÖP NU</a>
+      <a href="#buy" class="btn-main shake-btn">KÖP NU →</a>
     </div>
 
+    <div class="slime-bar bottom-slime">
+      <div class="drip up" style="--h:80px;--d:0s;--w:55px"></div>
+      <div class="drip up" style="--h:120px;--d:0.4s;--w:45px"></div>
+      <div class="drip up" style="--h:65px;--d:0.7s;--w:70px"></div>
+      <div class="drip up" style="--h:100px;--d:0.2s;--w:50px"></div>
+      <div class="drip up" style="--h:90px;--d:0.9s;--w:60px"></div>
+      <div class="drip up" style="--h:130px;--d:0.5s;--w:40px"></div>
+      <div class="drip up" style="--h:75px;--d:0.3s;--w:65px"></div>
+    </div>
   </section>
 
-  <!-- WHAT -->
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee">
+        💥 SAMLA BRAINROTS &nbsp;•&nbsp; 🏎️ VINN EN FERRARI &nbsp;•&nbsp;
+        💰 TJÄNA ROTS &nbsp;•&nbsp; 💪 SIGMA KORTET &nbsp;•&nbsp;
+        🥷 TJUV KORTET &nbsp;•&nbsp; 🧠 LET YOUR BRAIN ROT &nbsp;•&nbsp;
+        ⚡ PÅ REA NU &nbsp;•&nbsp; 🎲 KASTA TÄRNING &nbsp;•&nbsp;
+        💥 SAMLA BRAINROTS &nbsp;•&nbsp; 🏎️ VINN EN FERRARI &nbsp;•&nbsp;
+        💰 TJÄNA ROTS &nbsp;•&nbsp; 💪 SIGMA KORTET &nbsp;•&nbsp;
+      </div>
+    </div>
+    <div class="marquee-track reverse">
+      <div class="marquee">
+        🎮 VÄRLDENS BÄSTA KORTSPEL &nbsp;•&nbsp; 🔥 GJORT AV SKOLELEVER &nbsp;•&nbsp;
+        🏆 PREMIUM KAOS &nbsp;•&nbsp; 💀 DU ÄR COOKED &nbsp;•&nbsp;
+        🎯 2–6 SPELARE &nbsp;•&nbsp; 🌀 TOTAL BRAINROT &nbsp;•&nbsp;
+        ⭐ FRALLEX PRODUCTIONS &nbsp;•&nbsp; 🤯 ALDRIG TRÅKIGT &nbsp;•&nbsp;
+        🎮 VÄRLDENS BÄSTA KORTSPEL &nbsp;•&nbsp; 🔥 GJORT AV SKOLELEVER &nbsp;•&nbsp;
+        🏆 PREMIUM KAOS &nbsp;•&nbsp; 💀 DU ÄR COOKED &nbsp;•&nbsp;
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT IS IT -->
   <section class="section what">
-
-    <div class="section-header">
-      <h2 class="section-title">VAD ÄR DET</h2>
+    <div class="section-header" data-anim="fade-up" data-delay="0">
+      <h2 class="section-title tilt-left">VAD ÄR DET?!</h2>
+      <div class="section-line"></div>
     </div>
-
     <div class="cards-row">
-
-      <div class="card">
+      <div class="card card-green tilt-left" data-anim="fade-up" data-delay="0">
+        <div class="card-glow"></div>
+        <div class="card-icon">🎯</div>
         <h3>MÅLET</h3>
-        <p>Samla flest poäng innan spelet slutar.</p>
+        <p>Samla så många brainrots som möjligt och ha FLEST poäng när tiden är slut. Den som förlorar är cooked.</p>
       </div>
-
-      <div class="card">
-        <h3>VALUTA</h3>
-        <p>Spelet använder egen valuta.</p>
+      <div class="card card-yellow tilt-right" data-anim="fade-up" data-delay="100">
+        <div class="card-glow"></div>
+        <div class="card-icon">💰</div>
+        <h3>VALUTAN</h3>
+        <p>Brainrots kostar <strong>ROTS</strong> – spelets egna valuta. Utan rots = ingen brainrot = du förlorar.</p>
       </div>
-
-      <div class="card">
+      <div class="card card-pink tilt-left" data-anim="fade-up" data-delay="200">
+        <div class="card-glow"></div>
+        <div class="card-icon">👥</div>
         <h3>SPELARE</h3>
-        <p>2–6 spelare rekommenderas.</p>
+        <p>2–6 spelare rekommenderas. Du KAN spela mer eller mindre men… <strong>NEJ.</strong></p>
       </div>
-
-      <div class="card">
-        <h3>REGLER</h3>
-        <p>Ni bestämmer speltiden själva.</p>
+      <div class="card card-purple tilt-right" data-anim="fade-up" data-delay="300">
+        <div class="card-glow"></div>
+        <div class="card-icon">⏱️</div>
+        <h3>REGLERNA</h3>
+        <p>Ni bestämmer hur länge ni spelar. Alla enas – och sen kör ni tills chaosen tar slut!</p>
       </div>
-
     </div>
   </section>
 
-  <!-- CHARACTERS -->
+  <!-- MEET THE BRAINROTS -->
   <section class="section brainrots-section">
-
-    <div class="section-header">
-      <h2 class="section-title">KARAKTÄRER</h2>
+    <div class="section-header" data-anim="fade-up" data-delay="0">
+      <h2 class="section-title tilt-right">MEET THE BRAINROTS 🧠</h2>
+      <div class="section-line"></div>
     </div>
-
     <div class="brainrots-row">
-
-      <div class="brainrot-char">
+      <div class="brainrot-char" style="--delay:0s" data-anim="scale" data-delay="0">
+        <div class="char-glow-ring"></div>
         <img src="Tralalero.png" alt="Tralalero" />
         <div class="brainrot-name">TRALALERO</div>
       </div>
-
-      <div class="brainrot-char">
+      <div class="brainrot-char" style="--delay:0.4s" data-anim="scale" data-delay="150">
+        <div class="char-glow-ring"></div>
         <img src="Sahur.png" alt="Sahur" />
         <div class="brainrot-name">SAHUR</div>
       </div>
-
-      <div class="brainrot-char">
+      <div class="brainrot-char" style="--delay:0.8s" data-anim="scale" data-delay="300">
+        <div class="char-glow-ring"></div>
         <img src="Udin-Din-Din-Dun.png" alt="Udin Din Din Dun" />
         <div class="brainrot-name">UDIN DIN DIN DUN</div>
       </div>
-
     </div>
   </section>
 
   <!-- RARITIES -->
   <section class="section rarities-section">
-
-    <div class="section-header">
-      <h2 class="section-title">RARITETER</h2>
+    <div class="section-header" data-anim="fade-up" data-delay="0">
+      <h2 class="section-title tilt-right">BRAINROT RARITETER 🧠</h2>
+      <div class="section-line"></div>
     </div>
-
     <div class="rarity-row">
-
-      <div class="rarity-card">
-        <div>COMMON</div>
-        <div>100r</div>
+      <div class="rarity-card common" data-anim="fade-up" data-delay="0">
+        <div class="rarity-shine"></div>
+        <div class="rarity-label">COMMON</div>
+        <div class="rarity-price">100r</div>
+        <div class="rarity-desc">Billig &amp; basic</div>
       </div>
-
-      <div class="rarity-card">
-        <div>UNCOMMON</div>
-        <div>250r</div>
+      <div class="rarity-card uncommon" data-anim="fade-up" data-delay="80">
+        <div class="rarity-shine"></div>
+        <div class="rarity-label">UNCOMMON</div>
+        <div class="rarity-price">250r</div>
+        <div class="rarity-desc">Lite bättre</div>
       </div>
-
-      <div class="rarity-card">
-        <div>RARE</div>
-        <div>100r</div>
+      <div class="rarity-card rare" data-anim="fade-up" data-delay="160">
+        <div class="rarity-shine"></div>
+        <div class="rarity-label">RARE</div>
+        <div class="rarity-price">100r</div>
+        <div class="rarity-desc">Sällsynt 👀</div>
       </div>
-
-      <div class="rarity-card">
-        <div>EPIC</div>
-        <div>550r</div>
+      <div class="rarity-card epic" data-anim="fade-up" data-delay="240">
+        <div class="rarity-shine"></div>
+        <div class="rarity-label">EPIC</div>
+        <div class="rarity-price">550r</div>
+        <div class="rarity-desc">Episk. Punkt.</div>
       </div>
-
-      <div class="rarity-card">
-        <div>LEGENDARY</div>
-        <div>700r</div>
+      <div class="rarity-card legendary" data-anim="fade-up" data-delay="320">
+        <div class="rarity-shine"></div>
+        <div class="rarity-label">LEGENDARY</div>
+        <div class="rarity-price">700r</div>
+        <div class="rarity-desc">Legendarisk ⚡</div>
       </div>
-
-      <div class="rarity-card">
-        <div>MYTHIC</div>
-        <div>1000r</div>
+      <div class="rarity-card mythic" data-anim="fade-up" data-delay="400">
+        <div class="rarity-shine"></div>
+        <div class="rarity-label">MYTHIC</div>
+        <div class="rarity-price">1000r</div>
+        <div class="rarity-desc">LEGENDAR 🔥</div>
       </div>
-
     </div>
   </section>
 
   <!-- SPECIAL CARDS -->
   <section class="section cards-section">
-
-    <div class="section-header">
-      <h2 class="section-title">SPECIALKORT</h2>
+    <div class="section-header" data-anim="fade-up" data-delay="0">
+      <h2 class="section-title tilt-left">SPECIELLA KORT ⚡</h2>
+      <div class="section-line"></div>
     </div>
-
     <div class="special-cards">
-
-      <div class="special-card">
-        <h3>SIGMA-KORTET</h3>
-        <p>Stjäl fler resurser från andra spelare.</p>
+      <div class="special-card sigma" data-anim="fade-left" data-delay="0">
+        <div class="special-card-bg"></div>
+        <div class="card-stamp">SIGMA</div>
+        <div class="special-card-header">💪 SIGMA-KORTET</div>
+        <p>Kostar <strong>1 000 rots</strong>. Låter dig stjäla <strong>3 brainrots</strong> på en gång istället för 1.</p>
+        <p>Landar någon på din ruta? <strong>De tar det.</strong></p>
+        <p>Landar du på andras ruta? <strong>De får det.</strong></p>
+        <div class="chaos-label">OVERPOWERED 💀</div>
       </div>
-
-      <div class="special-card">
-        <h3>TJUV-KORTET</h3>
-        <p>Kan ta resurser från spelaren.</p>
+      <div class="special-card tjuv" data-anim="fade-right" data-delay="100">
+        <div class="special-card-bg"></div>
+        <div class="card-stamp cooked-stamp">COOKED</div>
+        <div class="special-card-header">🥷 TJUV-KORTET</div>
+        <p>Varje gång du köper en brainrot finns det en <strong>chans att dra tjuvkortet.</strong></p>
+        <p>Tjuven tar en av dina brainrots. Har du <strong>inga kvar?</strong></p>
+        <div class="chaos-label danger">DU ÅKER UT 💀</div>
       </div>
-
     </div>
-
   </section>
 
-  <!-- WHY -->
+  <!-- WHY BUY -->
   <section class="section why-section" id="buy">
-
-    <div class="section-header">
-      <h2 class="section-title">VARFÖR KÖPA</h2>
+    <div class="section-header" data-anim="fade-up" data-delay="0">
+      <h2 class="section-title tilt-right">VARFÖR JUST VÅR?! 🏆</h2>
+      <div class="section-line"></div>
     </div>
-
     <div class="why-grid">
-
-      <div class="why-item">På rea</div>
-      <div class="why-item">Unikt spel</div>
-      <div class="why-item">Premium känsla</div>
-      <div class="why-item">Skapat lokalt</div>
-
+      <div class="why-item" data-anim="scale" data-delay="0">🔥 På <strong>REA</strong>!<br/><span class="old-price">1295kr</span> → <strong>1294kr</strong></div>
+      <div class="why-item" data-anim="scale" data-delay="80">🦄 Extremt <strong>unikt</strong> spel</div>
+      <div class="why-item" data-anim="scale" data-delay="160">🏎️ Chans att vinna en <strong>FERRARI</strong></div>
+      <div class="why-item" data-anim="scale" data-delay="240">🧒 Gjort av två <strong>skolelever</strong></div>
+      <div class="why-item" data-anim="scale" data-delay="320">❤️ Gjort med <strong>kärlek</strong></div>
+      <div class="why-item" data-anim="scale" data-delay="400">✂️ Bästa materialen <strong>från skolan</strong></div>
     </div>
-
-    <a href="#" class="btn-main">KÖP SPELET</a>
-
+    <a href="#" class="btn-main btn-big shake-btn">💥 KÖP BRAINROT-KAOS – 1294kr 💥</a>
   </section>
 
   <!-- CONTENTS -->
   <section class="section contents-section">
-
-    <div class="section-header">
-      <h2 class="section-title">DETTA INGÅR</h2>
+    <div class="section-header" data-anim="fade-up" data-delay="0">
+      <h2 class="section-title tilt-left">VAD INGÅR? 📦</h2>
+      <div class="section-line"></div>
     </div>
-
     <div class="contents-grid">
-      <div class="content-item">Spelbräda</div>
-      <div class="content-item">Knappar</div>
-      <div class="content-item">Valuta</div>
-      <div class="content-item">Regler</div>
-      <div class="content-item">Kort</div>
+      <div class="content-item" data-anim="scale" data-delay="0">🎮 Spelpjäs</div>
+      <div class="content-item" data-anim="scale" data-delay="60">🗺️ Brädan</div>
+      <div class="content-item" data-anim="scale" data-delay="120">🧠 Brainrots</div>
+      <div class="content-item" data-anim="scale" data-delay="180">💵 Valuta (Rots)</div>
+      <div class="content-item" data-anim="scale" data-delay="240">📜 Regler</div>
+      <div class="content-item" data-anim="scale" data-delay="300">🏎️ Ferrari (kanske)</div>
+      <div class="content-item" data-anim="scale" data-delay="360">🃏 Korten</div>
     </div>
-
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>FRALLEX PRODUCTIONS</p>
+    <div class="footer-glow"></div>
+    <p>© 2025 FRALLEX PRODUCTIONS · LET YOUR BRAIN ROT 🧠</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
